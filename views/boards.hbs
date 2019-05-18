@@ -1,0 +1,25 @@
+<div>
+  {{#if boards}}
+  <h1 class="text-center">Boards</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Board Name</th>
+        <th scope="col">Threads</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each boards}}
+      <tr>
+        <th scope="row">{{this.board_name}}</th>
+        <td>{{this.threads.length}}</td>
+        <td><a {{{href this.board_name}}}>Visit</a></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{else}}
+  <h1 class="text-center">No Boards Found</h1>
+  {{/if}}
+</div>

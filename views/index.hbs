@@ -1,0 +1,87 @@
+<div class="card">
+  <div class="card-body">
+    <h1 class="text-center">ADD NEW THREAD</h1>
+
+    <form id="add-thread">
+      <div class="form-group">
+        <label for="thread-title">Board Name</label>
+        <input type="text" class="form-control" id="thread-title">
+        <small id="boardNameHelp" class="form-text text-muted">The board_name should range between 3 - 10
+          characters.</small>
+      </div>
+      <div class="form-group">
+        <label for="thread-text">Text</label>
+        <textarea class="form-control" id="thread-text"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="thread-password">Password</label>
+        <input type="password" class="form-control" id="thread-password">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+{{!-- 
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+    integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
+  <script>
+    $(function () {
+      $('#newThread').submit(function () {
+        var board = $('#board1').val();
+        $(this).attr('action', "/api/threads/" + board);
+      });
+      $('#newReply').submit(function () {
+        var board = $('#board4').val();
+        $(this).attr('action', "/api/replies/" + board);
+      });
+      $('#reportThread').submit(function (e) {
+        var url = "/api/threads/" + $('#board2').val();
+        $.ajax({
+          type: "PUT",
+          url: url,
+          data: $(this).serialize(),
+          success: function (data) {
+            alert(data);
+          }
+        });
+        e.preventDefault();
+      });
+      $('#deleteThread').submit(function (e) {
+        var url = "/api/threads/" + $('#board3').val();
+        $.ajax({
+          type: "DELETE",
+          url: url,
+          data: $(this).serialize(),
+          success: function (data) {
+            alert(data);
+          }
+        });
+        e.preventDefault();
+      });
+      $('#reportReply').submit(function (e) {
+        var url = "/api/replies/" + $('#board5').val();
+        $.ajax({
+          type: "PUT",
+          url: url,
+          data: $(this).serialize(),
+          success: function (data) {
+            alert(data);
+          }
+        });
+        e.preventDefault();
+      });
+      $('#deleteReply').submit(function (e) {
+        var url = "/api/replies/" + $('#board6').val();
+        $.ajax({
+          type: "DELETE",
+          url: url,
+          data: $(this).serialize(),
+          success: function (data) {
+            alert(data);
+          }
+        });
+        e.preventDefault();
+      });
+    });
+  </script> --}}

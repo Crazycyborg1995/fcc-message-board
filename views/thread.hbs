@@ -1,0 +1,40 @@
+<div>
+  {{#if board}}
+  {{#if thread}}
+  {{> modal}}
+  <h1 class="text-center text-primary">{{board_name}}</h1>
+  <div class="card p-4">
+    <div class="card-body">
+      <h1>{{thread.text}}</h1>
+      <div class="text-center mt-4">
+        <button type="button" id="report-thread" class="btn btn-danger m-1">REPORT</button>
+        <button type="button" id="delete-thread" class="btn btn-success m-1">DELETE</button>
+      </div>
+      <h3 class="my-4 text-center"><ins>Replies:</ins></h3>
+      {{#if thread.replies}}
+      {{#each thread.replies}}
+      <div class="card flex-container p-3 my-2">
+        <p id="comments" class="text-success">{{this.text}}</p>
+        <div class="card__icons">
+          <a href="javascript:void(0);" class="report-reply" data-id={{this._id}}><i class="fas fa-flag"></i></a>
+          <a href="javascript:void(0);" class="delete-reply" data-id={{this._id}}><i class="far fa-trash-alt"></i></a>
+        </div>
+      </div>
+      {{/each}}
+      {{/if}}
+      <form class="form-group" id="add-comment">
+        <textarea class="form-control mt-4" id="reply" rows="3" placeholder="Post a comment"></textarea>
+        <input type="text" class="form-control mt-2" id="reply-password" placeholder="deletion password">
+        <small id="passwordHelp" class="form-text text-muted">The password should range between 4 - 10
+          characters.</small>
+        <button type="submit" class="btn btn-primary my-3">Submit Reply</button>
+      </form>
+    </div>
+  </div>
+  {{else}}
+  <h1 class="text-center">Thread not found</h1>
+  {{/if}}
+  {{else}}
+  <h1 class="text-center">Board Not Found</h1>
+  {{/if}}
+</div>
